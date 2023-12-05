@@ -5,8 +5,8 @@ import { useLoader } from "@react-three/fiber";
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 
 function Experience() {
-  const model = useLoader(GLTFLoader, './models/dog/scene.gltf')
-  console.log(model)
+  const dogModel = useLoader(GLTFLoader, './models/dog/dog.glb')
+  const robot = useLoader(GLTFLoader, './models/r2d2-bipedal.glb')
 
   return (<>
     <OrbitControls />
@@ -14,9 +14,8 @@ function Experience() {
     <ambientLight intensity={1} />
     <directionalLight position={[5, 5,5]} intensity={7} castShadow color={"#9e69da"}/>
     {/* STAGE */}
-    <group>
-        <primitive object={model.scene} />
-    </group>
+        <primitive object={dogModel.scene} />
+        <primitive object={robot.scene} scale={2} position-x={-2}/>
     <RigidBody colliders={false} type="fixed" position-y={-0.5}>
         <CylinderCollider args={[1/2, 5]} />
         <Cylinder scale={[5,1,5]} receiveShadow>
