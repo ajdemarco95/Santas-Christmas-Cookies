@@ -1,0 +1,8 @@
+Model Information:
+* title:	Dog - Labrador v02
+* source:	https://sketchfab.com/3d-models/dog-labrador-v02-59d22b6d60d74a79abf7ef8263778d88
+* author:	RedDeer (https://sketchfab.com/billl90)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
