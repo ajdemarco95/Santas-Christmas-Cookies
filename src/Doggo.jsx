@@ -5,8 +5,17 @@ Command: npx gltfjsx@6.2.15 ./public/models/dog/doggo.glb
 
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import { useControls } from 'leva'
+import useDog from './store/useDog'
 
-export function Model(props) {
+export function Doggo(props) {
+
+  const dogActiveAnim = useDog((state) => state.dogActiveAnim)
+
+  const run = useDog((state) => state.dogRun)
+
+  console.log(dogActiveAnim)
+
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('./models/dog/doggo_actions_all.glb')
   const { actions, names } = useAnimations(animations, group)
@@ -35,19 +44,16 @@ export function Model(props) {
   122 - Walk Forward
   124 - Walk Left
   126 - Walk Right
-
   */
 
-  const currentAnim = 40
 
   useEffect(() => {
-    actions[names[currentAnim]].reset().fadeIn(0.5).play()
-  }, [])
+    actions[names[dogActiveAnim]].reset().fadeIn(0.5).play()
+  }, [dogActiveAnim])
 
-  console.log(names[currentAnim])
 
   return (
-    <group scale={.005} ref={group} {...props} dispose={null}>
+    <group onClick={run} scale={.02} ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Arm_Labrador" scale={100}>
           <primitive object={nodes.Root_bone} />
