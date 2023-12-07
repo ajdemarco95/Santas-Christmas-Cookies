@@ -1,29 +1,25 @@
-import { OrbitControls, Cylinder, Environment } from "@react-three/drei";
-import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useGLTF } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls, Environment } from "@react-three/drei";
+import { RigidBody } from "@react-three/rapier";
 import { Doggo } from "./Doggo";
-import { useControls } from "leva";
 
 function Experience() {
   return (
     <>
       <OrbitControls />
-      <Environment preset="sunset" background />
+      <Environment preset="park" background />
       <ambientLight intensity={1} />
       <directionalLight
         position={[5, 5, 5]}
-        intensity={7}
+        intensity={4}
         castShadow
         color={"white"}
       />
       {/* STAGE */}
       <Doggo/>
-      <RigidBody colliders={false} type="fixed" position-y={-0.5}>
-        <mesh>
-          <boxGeometry args={[1, 1, 5]} />
-          <meshStandardMaterial color={"pink"} />
+      <RigidBody colliders={false} type="fixed" position-y={-.1}>
+        <mesh receiveShadow>
+          <boxGeometry args={[10,.2, 10]} />
+          <meshStandardMaterial color={"green"} />
         </mesh>
       </RigidBody>
     </>
