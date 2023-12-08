@@ -3,6 +3,7 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { Doggo } from "./Doggo";
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import Lighting from "./Lighting";
+import Ground from "./Ground";
 function Experience() {
   return (
     <>
@@ -11,15 +12,16 @@ function Experience() {
 
        <Lighting />
       <Doggo />
+      <Ground />
       
 
 
-      <RigidBody type="fixed" position-y={-0.5}>
+      {/* <RigidBody type="fixed" position-y={-0.5}>
         <mesh receiveShadow>
-          <boxGeometry args={[50, 0.2, 50]} />
+          <boxGeometry args={[50, 0.1, 50]} />
           <meshStandardMaterial color={"black"} />
         </mesh>
-      </RigidBody>
+      </RigidBody> */}
     </>
   );
 }
