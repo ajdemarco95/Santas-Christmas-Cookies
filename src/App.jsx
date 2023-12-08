@@ -5,7 +5,7 @@ import { Physics } from "@react-three/rapier";
 import { KeyboardControls, Stars, Sky, Environment } from "@react-three/drei";
 import "./App.css";
 import { Perf } from "r3f-perf";
-
+import UI from "./UI";
 function App() {
   return (
     <>
@@ -18,14 +18,16 @@ function App() {
           { name: "jump", keys: ["Space"] },
         ]}
       >
+        <UI />
         <Canvas
           shadows
           camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
         >
           <Perf />
           <Environment files={"./hdri/night-sky.hdr"} background />
-          <fog attach="fog" color="black" near={3} far={25} />
-          <Physics debug>
+          <Sky />
+          {/* <fog attach="fog" color="white" near={20} far={25} /> */}
+          <Physics >
             <Experience />
           </Physics>
         </Canvas>

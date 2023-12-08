@@ -7,6 +7,7 @@ import React, { useRef, useMemo, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useControls } from "leva";
+import useGame from "./store/useGame";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF(
@@ -28,6 +29,10 @@ export default function Model(props) {
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 0.81, 0.63];
 
+
+  const increaseScore = useGame((state) => state.increaseScore)
+
+
   if (isCollected) {
     return null;
   } else if (!isCollected) {
@@ -44,6 +49,7 @@ export default function Model(props) {
           <CuboidCollider
             onCollisionEnter={(e) => {
               if (e.other.rigidBodyObject.name === "doggo")
+              increaseScore()
                 setIsCollected(true);
             }}
             position={posArr}

@@ -11,7 +11,8 @@ function Ground() {
   snowTexture.wrapS = RepeatWrapping;
   snowTexture.wrapT = RepeatWrapping;
   snowTexture.repeat.set(15, 15);
-
+  snowTexture.rotation = 96
+  console.log(snowTexture)
 
   return (
     <>
@@ -19,7 +20,7 @@ function Ground() {
         <mesh receiveShadow>
           <boxGeometry args={[50, 0.1, 50]} />
           <meshStandardMaterial
-          // color={"black"}
+          // color="#898989"
             map={snowTexture}
           />
         </mesh>
