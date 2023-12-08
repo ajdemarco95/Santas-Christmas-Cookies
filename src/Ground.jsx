@@ -19,6 +19,7 @@ function Ground() {
         <mesh receiveShadow>
           <boxGeometry args={[50, 0.1, 50]} />
           <meshStandardMaterial
+          // color={"black"}
             map={snowTexture}
           />
         </mesh>

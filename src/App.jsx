@@ -25,7 +25,7 @@ function App() {
           <Perf />
           <Environment files={"./hdri/night-sky.hdr"} background />
           <fog attach="fog" color="black" near={3} far={25} />
-          <Physics>
+          <Physics debug>
             <Experience />
           </Physics>
         </Canvas>
