@@ -4,8 +4,7 @@ import { Suspense } from "react";
 import { Physics } from "@react-three/rapier";
 import { KeyboardControls, Stars, Sky, Environment } from "@react-three/drei";
 import "./App.css";
-import { Perf } from 'r3f-perf'
-
+import { Perf } from "r3f-perf";
 
 function App() {
   return (
@@ -23,19 +22,9 @@ function App() {
           shadows
           camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
         >
-  <Perf />
-          <Environment files={"./hdri/night-sky.hdr"} background/>
-          {/* <Sky
-            turbidity={0}
-            rayleigh={0.005}
-            distance={450000}
-            sunPosition={[0, 1, 0]}
-            inclination={1}
-            azimuth={1}
-          /> */}
-
+          <Perf />
+          <Environment files={"./hdri/night-sky.hdr"} background />
           <fog attach="fog" color="black" near={3} far={25} />
-
           <Physics>
             <Experience />
           </Physics>
