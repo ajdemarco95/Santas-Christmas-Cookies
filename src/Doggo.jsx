@@ -77,6 +77,7 @@ export function Doggo(props) {
         floatHeight={0.03}
         camInitDis={-8}
         camInitDir={{ x: 0.4, y: 0, z: 0 }}
+        name={"doggo"}
       >
         <group position={[0, -0.65, 0]} scale={0.02} ref={group} {...props} dispose={null}>
           <group name="Scene">
