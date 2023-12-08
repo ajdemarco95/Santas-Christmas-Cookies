@@ -12,6 +12,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
 import { CuboidCollider } from "@react-three/rapier";
 import { RigidBody } from "@react-three/rapier";
+import Ecctrl, { EcctrlAnimation } from "ecctrl";
 
 export function Doggo(props) {
   const [subscribeKeys, getKeys] = useKeyboardControls();
@@ -70,8 +71,14 @@ export function Doggo(props) {
 
   return (
     <>
+    
+    <Ecctrl
+        maxVelLimit={7}
+        floatHeight={0.03}
+        camInitDis={-8}
+        camInitDir={{ x: 0.4, y: 0, z: 0 }}
+      >
         <group position={[0, -0.65, 0]} scale={0.02} ref={group} {...props} dispose={null}>
-
           <group name="Scene">
             <group name="Arm_Labrador" scale={1}>
               <primitive object={nodes.Root_bone} />
@@ -85,6 +92,7 @@ export function Doggo(props) {
             </group>
           </group>
         </group>
+        </Ecctrl>
     </>
   );
 }
