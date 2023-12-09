@@ -27,9 +27,11 @@ function App() {
           <Environment files={"./hdri/night-sky.hdr"} background />
           <Sky />
           <fog attach="fog" color="white" near={25} far={50} />
+          <Suspense>
           <Physics debug>
             <Experience />
           </Physics>
+          </Suspense>
         </Canvas>
       </KeyboardControls>
     </>

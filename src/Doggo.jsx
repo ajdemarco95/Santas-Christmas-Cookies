@@ -13,6 +13,7 @@ import { useKeyboardControls } from "@react-three/drei";
 import { CuboidCollider } from "@react-three/rapier";
 import { RigidBody } from "@react-three/rapier";
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
+import * as THREE from 'three'
 
 export function Doggo(props) {
   const [subscribeKeys, getKeys] = useKeyboardControls();
@@ -54,7 +55,13 @@ export function Doggo(props) {
       idle();
     }
 
-    const dogPos = doggo.current.translation()
+    // const dogPos = doggo.current.translation()
+
+    // console.log(group.current)
+
+    let dogPos = new THREE.Vector3()
+    group.current.getWorldPosition(dogPos)
+    // console.log(dogPos)
 
     updateDogPosition(dogPos)
     // console.log(dogPosition)

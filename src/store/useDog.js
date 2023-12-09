@@ -13,7 +13,7 @@ export default create((set) => ({
   dogSit: () => set((state) => ({ dogActiveAnim: 83 })),
   updateDogPosition: (pos) => {
     set((state) => {
-      return {dogPosition: new THREE.Vector3(pos.x, pos.y, pos.z)};
+      return {dogPosition: pos};
     });
   },
 

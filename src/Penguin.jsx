@@ -7,13 +7,19 @@ Source: https://sketchfab.com/3d-models/penguin-2c079bc491fb4bb4942c0f87927f8d87
 Title: Penguin
 */
 
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { RigidBody, CuboidCollider } from "@react-three/rapier";
+import {
+  RigidBody,
+  CuboidCollider,
+  vec3,
+  euler,
+  quat,
+} from "@react-three/rapier";
 import { useControls } from "leva";
 import useDog from "./store/useDog";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from 'three'
+import * as THREE from "three";
 export default function Model(props) {
   const group = useRef();
   const penguin = useRef();
@@ -41,22 +47,32 @@ export default function Model(props) {
   const dogPosition = useDog((state) => state.dogPosition);
 
   useFrame((state, delta) => {
+    if (penguin.current) {
+      const penguinPosRapier = penguin.current.translation();
+      const penguinPosThree = vec3(penguinPosRapier);
 
-    const penguinPos = penguin.current.translation()
-    const penguinPosV = new THREE.Vector3(penguinPos.x, penguinPos.y, penguinPos.z)
+      const direction = new THREE.Vector3().subVectors(
+        dogPosition,
+        penguinPosThree
+      );
+      direction.normalize();
+      penguin.current.setLinvel(direction);
+      // group.current.lookAt(dogPosition)
 
-    const distance = dogPosition.distanceTo(penguinPosV);
-    const direction = new THREE.Vector3().subVectors(dogPosition, penguinPosV);
-    direction.normalize();
+      // const distance = dogPosition.distanceTo(penguinPosV);
 
-    const penguinSpeed = 0.05;
-    const speed = penguinSpeed * delta; 
-    const newPosition = new THREE.Vector3().addVectors(penguinPosV, direction.multiplyScalar(speed));
+      // Calculate rotation
+      const targetQuaternion = new THREE.Quaternion().setFromUnitVectors(
+        new THREE.Vector3(0, 0, 1), // Assuming the penguin's forward direction is along the positive Z-axis
+        direction
+      );
 
-    penguinPosV.copy(newPosition);
+      const eulerRot = euler().setFromQuaternion(quat(targetQuaternion));
 
-    console.log(direction);
-    // console.log(penguin.current.translation())
+      penguin.current.setRotation(targetQuaternion, true);
+
+      console.log(eulerRot);
+    }
   });
 
   return (
