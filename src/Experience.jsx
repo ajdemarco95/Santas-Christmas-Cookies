@@ -4,6 +4,7 @@ import Ground from "./Ground";
 import LogHut from "./LogHut";
 import ChristmasTreeCookie from "./ChristmasTreeCookie";
 import GroundSnow from "./GroundSnow";
+import Penguin from './Penguin'
 
 function Experience() {
   return (
@@ -11,8 +12,9 @@ function Experience() {
 
       <Lighting />
       <Doggo />
-      {/* <Ground /> */}
-      <GroundSnow />
+      <Ground />
+      <Penguin />
+      {/* <GroundSnow /> */}
       <LogHut />
       <ChristmasTreeCookie />
     </>

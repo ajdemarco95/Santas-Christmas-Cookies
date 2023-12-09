@@ -1,14 +1,17 @@
 import { create } from "zustand";
+import * as THREE from 'three'
 
 export default create((set) => ({
   dogActiveAnim: 39,
   status: "resting",
+  dogPosition: new THREE.Vector3(),
   dogRun: () => set((state) => ({ dogActiveAnim: 76 })),
   dogRunLeft: () => set((state) => ({ dogActiveAnim: 78 })),
   dogRunRight: () => set((state) => ({ dogActiveAnim: 80 })),
   dogWalkBack: () => set((state) => ({ dogActiveAnim: 119 })),
   dogIdle: () => set((state) => ({ dogActiveAnim: 40 })),
   dogSit: () => set((state) => ({ dogActiveAnim: 83 })),
+  updateDogPosition: () => set((state) => ({ dogPosition: state }))
 }));
 
 

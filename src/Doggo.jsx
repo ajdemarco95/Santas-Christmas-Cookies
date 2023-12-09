@@ -25,7 +25,12 @@ export function Doggo(props) {
   const idle = useDog((state) => state.dogIdle);
   const sit = useDog((state) => state.dogSit);
 
+  const updateDogPosition = useDog((state) => state.updateDogPosition)
+  // const dogPosition = useDog((state) => state.dogPosition)
+
   const group = useRef();
+  const doggo = useRef();
+
   const { nodes, materials, animations } = useGLTF(
     "./models/dog/doggo_actions_all.glb"
   );
@@ -34,12 +39,12 @@ export function Doggo(props) {
   //Switch animations based on state updates
   useEffect(() => {
     actions[names[dogActiveAnim]].reset().fadeIn(0.5).play();
+
     return () => {
       actions[names[dogActiveAnim]].fadeOut(0.5);
     };
   }, [dogActiveAnim]);
 
-  const camera = useThree((state) => state.camera);
 
   useFrame((state, delta) => {
     const { forward, backward, leftward, rightward } = getKeys();
@@ -66,8 +71,13 @@ export function Doggo(props) {
     } else {
       idle();
     }
+
+    updateDogPosition(doggo.current.translation())
+    // console.log(dogPosition)
+
     
   });
+
 
   return (
     <>
@@ -78,12 +88,14 @@ export function Doggo(props) {
         camInitDis={-8}
         camInitDir={{ x: 0.4, y: 0, z: 0 }}
         name={"doggo"}
+        ref={doggo} 
       >
         <group position={[0, -0.65, 0]} scale={0.02} ref={group} {...props} dispose={null}>
           <group name="Scene">
             <group name="Arm_Labrador" scale={1}>
               <primitive object={nodes.Root_bone} />
               <skinnedMesh
+                
                 castShadow
                 name="Labardor"
                 geometry={nodes.Labardor.geometry}

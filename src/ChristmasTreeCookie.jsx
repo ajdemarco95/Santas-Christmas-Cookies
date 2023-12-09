@@ -23,8 +23,8 @@ export default function Model(props) {
     };
   }, []);
 
-  const colliderPos = useControls("collider", options);
-  const colliderArgs = useControls("colliderArgs", options);
+  // const colliderPos = useControls("collider", options);
+  // const colliderArgs = useControls("colliderArgs", options);
 
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 0.81, 0.63];
@@ -41,9 +41,9 @@ export default function Model(props) {
         position-x={2}
         position-z={5}
         position-y={0.15}
-        {...props}
         rotation-y={Math.PI}
         dispose={null}
+        {...props}
       >
         <RigidBody type="kinematicPosition" colliders={false}>
           <CuboidCollider
