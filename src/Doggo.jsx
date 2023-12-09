@@ -26,7 +26,6 @@ export function Doggo(props) {
   const sit = useDog((state) => state.dogSit);
 
   const updateDogPosition = useDog((state) => state.updateDogPosition)
-  // const dogPosition = useDog((state) => state.dogPosition)
 
   const group = useRef();
   const doggo = useRef();
@@ -50,29 +49,14 @@ export function Doggo(props) {
     const { forward, backward, leftward, rightward } = getKeys();
 
     if (forward || backward || leftward || rightward) {
-      if (forward) {
-        run();
-      }
-      if (backward) {
-        run();
-      }
-      if (leftward) {
-        run();
-      }
-      if (rightward) {
-        run();
-      }
-      // if (forward && leftward) {
-      //   runLeft();
-      // }
-      // if (forward && rightward) {
-      //   runRight();
-      // }
+      run()
     } else {
       idle();
     }
 
-    updateDogPosition(doggo.current.translation())
+    const dogPos = doggo.current.translation()
+
+    updateDogPosition(dogPos)
     // console.log(dogPosition)
 
     

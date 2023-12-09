@@ -11,7 +11,12 @@ export default create((set) => ({
   dogWalkBack: () => set((state) => ({ dogActiveAnim: 119 })),
   dogIdle: () => set((state) => ({ dogActiveAnim: 40 })),
   dogSit: () => set((state) => ({ dogActiveAnim: 83 })),
-  updateDogPosition: () => set((state) => ({ dogPosition: state }))
+  updateDogPosition: (pos) => {
+    set((state) => {
+      return {dogPosition: new THREE.Vector3(pos.x, pos.y, pos.z)};
+    });
+  },
+
 }));
 
 

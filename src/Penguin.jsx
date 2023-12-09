@@ -7,15 +7,21 @@ Source: https://sketchfab.com/3d-models/penguin-2c079bc491fb4bb4942c0f87927f8d87
 Title: Penguin
 */
 
-import React, { useRef, useMemo } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
-import { RigidBody, CuboidCollider } from '@react-three/rapier'
+import React, { useRef, useMemo } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useControls } from "leva";
-
+import useDog from "./store/useDog";
+import { useFrame } from "@react-three/fiber";
+import * as THREE from 'three'
 export default function Model(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./models/penguin/penguin.glb')
-  const { actions } = useAnimations(animations, group)
+  const group = useRef();
+  const penguin = useRef();
+
+  const { nodes, materials, animations } = useGLTF(
+    "./models/penguin/penguin.glb"
+  );
+  const { actions } = useAnimations(animations, group);
 
   const options = useMemo(() => {
     return {
@@ -25,51 +31,87 @@ export default function Model(props) {
     };
   }, []);
 
-  const colliderPos = useControls("collider", options);
-  const colliderArgs = useControls("colliderArgs", options);
-
+  // const colliderPos = useControls("collider", options);
+  // const colliderArgs = useControls("colliderArgs", options);
   // const posArr = [colliderPos.x, colliderPos.y, colliderPos.z];
   // const argsArr = [colliderArgs.x, colliderArgs.y, colliderArgs.z];
-
   const posArr = [0, 0.53, 0];
   const argsArr = [0.34, 0.54, 0.35];
 
+  const dogPosition = useDog((state) => state.dogPosition);
 
+  useFrame((state, delta) => {
+
+    const penguinPos = penguin.current.translation()
+    const penguinPosV = new THREE.Vector3(penguinPos.x, penguinPos.y, penguinPos.z)
+
+    const distance = dogPosition.distanceTo(penguinPosV);
+    const direction = new THREE.Vector3().subVectors(dogPosition, penguinPosV);
+    direction.normalize();
+
+    const penguinSpeed = 0.05;
+    const speed = penguinSpeed * delta; 
+    const newPosition = new THREE.Vector3().addVectors(penguinPosV, direction.multiplyScalar(speed));
+
+    penguinPosV.copy(newPosition);
+
+    console.log(direction);
+    // console.log(penguin.current.translation())
+  });
 
   return (
-    <group  position-x={4} ref={group} {...props} dispose={null}>
-      <RigidBody colliders={false}>
-      <CuboidCollider
-            onCollisionEnter={(e) => {
-              if (e.other.rigidBodyObject.name === "doggo")
-              increaseScore()
-                setIsCollected(true);
-            }}
-            position={posArr}
-            args={argsArr}
-          />
+    <group position-x={4} ref={group} {...props} dispose={null}>
+      <RigidBody ref={penguin} colliders={false}>
+        <CuboidCollider
+          onCollisionEnter={(e) => {
+            if (e.other.rigidBodyObject.name === "doggo") increaseScore();
+            setIsCollected(true);
+          }}
+          position={posArr}
+          args={argsArr}
+        />
 
-      <group scale={.002} name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-          <group name="ee3fc61dae304d61bcd529d66822f459fbx" rotation={[Math.PI / 2, 0, 0]}>
-            <group name="Object_2">
-              <group name="RootNode">
-                <group name="PenguinArmature" rotation={[-Math.PI / 2, 0, 0]} scale={100}>
-                  <group name="Object_5">
-                    <primitive object={nodes._rootJoint} />
-                    <group name="Object_27" rotation={[-Math.PI / 2, 0, 0]} scale={100} />
-                    <skinnedMesh name="Object_28" geometry={nodes.Object_28.geometry} material={materials.Material} skeleton={nodes.Object_28.skeleton} />
+        <group scale={0.002} name="Sketchfab_Scene">
+          <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
+            <group
+              name="ee3fc61dae304d61bcd529d66822f459fbx"
+              rotation={[Math.PI / 2, 0, 0]}
+            >
+              <group name="Object_2">
+                <group name="RootNode">
+                  <group
+                    name="PenguinArmature"
+                    rotation={[-Math.PI / 2, 0, 0]}
+                    scale={100}
+                  >
+                    <group name="Object_5">
+                      <primitive object={nodes._rootJoint} />
+                      <group
+                        name="Object_27"
+                        rotation={[-Math.PI / 2, 0, 0]}
+                        scale={100}
+                      />
+                      <skinnedMesh
+                        name="Object_28"
+                        geometry={nodes.Object_28.geometry}
+                        material={materials.Material}
+                        skeleton={nodes.Object_28.skeleton}
+                      />
+                    </group>
                   </group>
+                  <group
+                    name="Penguin"
+                    rotation={[-Math.PI / 2, 0, 0]}
+                    scale={100}
+                  />
                 </group>
-                <group name="Penguin" rotation={[-Math.PI / 2, 0, 0]} scale={100} />
               </group>
             </group>
           </group>
         </group>
-      </group>
       </RigidBody>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('./models/penguin/penguin.glb')
+useGLTF.preload("./models/penguin/penguin.glb");
