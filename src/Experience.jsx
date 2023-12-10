@@ -13,7 +13,7 @@ function Experience() {
       <Lighting />
       <Doggo />
       <Ground />
-      <Penguin />
+      {/* <Penguin /> */}
       {/* <GroundSnow /> */}
       <LogHut />
       <ChristmasTreeCookie />

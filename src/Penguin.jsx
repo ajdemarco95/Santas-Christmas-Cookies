@@ -57,31 +57,29 @@ export default function Model(props) {
       );
       direction.normalize();
       penguin.current.setLinvel(direction);
-      // group.current.lookAt(dogPosition)
 
       // const distance = dogPosition.distanceTo(penguinPosV);
 
       // Calculate rotation
       const targetQuaternion = new THREE.Quaternion().setFromUnitVectors(
         new THREE.Vector3(0, 0, 1), // Assuming the penguin's forward direction is along the positive Z-axis
-        direction
+        0.
       );
 
       const eulerRot = euler().setFromQuaternion(quat(targetQuaternion));
 
       penguin.current.setRotation(targetQuaternion, true);
 
-      console.log(eulerRot);
+      // console.log(eulerRot);
     }
   });
 
   return (
-    <group position-x={4} ref={group} {...props} dispose={null}>
+    <group position-z={1} position-x={4} ref={group} {...props} dispose={null}>
       <RigidBody ref={penguin} colliders={false}>
         <CuboidCollider
           onCollisionEnter={(e) => {
             if (e.other.rigidBodyObject.name === "doggo") increaseScore();
-            setIsCollected(true);
           }}
           position={posArr}
           args={argsArr}

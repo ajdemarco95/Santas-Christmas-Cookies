@@ -10,8 +10,7 @@ import { useControls } from "leva";
 import useDog from "./store/useDog";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
-import { CuboidCollider } from "@react-three/rapier";
-import { RigidBody } from "@react-three/rapier";
+import { CuboidCollider,RigidBody, vec3 } from "@react-three/rapier";
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import * as THREE from 'three'
 
