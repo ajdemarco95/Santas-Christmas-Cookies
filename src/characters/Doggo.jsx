@@ -10,9 +10,9 @@ import { useControls } from "leva";
 import useDog from "../store/useDog";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
-import { CuboidCollider,RigidBody, vec3 } from "@react-three/rapier";
+import { CuboidCollider, RigidBody, vec3 } from "@react-three/rapier";
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
-import * as THREE from 'three'
+import * as THREE from "three";
 
 export function Doggo(props) {
   const [subscribeKeys, getKeys] = useKeyboardControls();
@@ -25,7 +25,7 @@ export function Doggo(props) {
   const idle = useDog((state) => state.dogIdle);
   const sit = useDog((state) => state.dogSit);
 
-  const updateDogPosition = useDog((state) => state.updateDogPosition)
+  // const updateDogPosition = useDog((state) => state.updateDogPosition)
 
   const group = useRef();
   const doggo = useRef();
@@ -44,44 +44,49 @@ export function Doggo(props) {
     };
   }, [dogActiveAnim]);
 
-
   useFrame((state, delta) => {
     const { forward, backward, leftward, rightward } = getKeys();
 
     if (forward || backward || leftward || rightward) {
-      run()
+      run();
     } else {
       idle();
     }
 
-    let dogPos = new THREE.Vector3()
-    group.current.getWorldPosition(dogPos)
-
-    updateDogPosition(dogPos)
-    
+    // let dogPos = new THREE.Vector3()
+    // group.current.getWorldPosition(dogPos)
+    // updateDogPosition(dogPos)
   });
-  
-  // const pos = [59.20, 5.08, 44.79]
 
+  const pos = [-20, 0, 0];
 
   return (
     <>
-    
-    <Ecctrl
-        maxVelLimit={10}
-        floatHeight={0.03}
-        camInitDis={-20}
-        camInitDir={{ x: 0.4, y: 0, z: 0 }}
+      <Ecctrl
         name={"doggo"}
-        ref={doggo} 
-        // position={pos}
+        ref={doggo}
+        position={pos}
+
+        floatHeight={0.03}
+
+
+        maxVelLimit={15}
+        sprintMult={3}
+        camInitDis={-20}
+        camInitDir={{ x: 0.4, y: Math.PI * -0.5, z: 0 }}
+        characterInitDir={Math.PI * -0.5}
       >
-        <group position={[0, -0.65, 0]} scale={0.04} ref={group} {...props} dispose={null}>
+        <group
+          position={[0, -0.65, 0]}
+          scale={0.04}
+          ref={group}
+          {...props}
+          dispose={null}
+        >
           <group name="Scene">
             <group name="Arm_Labrador" scale={1}>
               <primitive object={nodes.Root_bone} />
               <skinnedMesh
-                
                 castShadow
                 name="Labardor"
                 geometry={nodes.Labardor.geometry}
@@ -91,7 +96,7 @@ export function Doggo(props) {
             </group>
           </group>
         </group>
-        </Ecctrl>
+      </Ecctrl>
     </>
   );
 }
