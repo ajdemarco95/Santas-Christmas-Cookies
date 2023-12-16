@@ -5,6 +5,7 @@ import { Physics } from "@react-three/rapier";
 import { KeyboardControls, Stars, Sky, Environment, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import UI from "./UI";
+
 function App() {
   return (
     <>
@@ -20,13 +21,13 @@ function App() {
         <UI />
         <Canvas
           shadows
-          camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
+          camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 110 }}
         >
           <Perf />
           <Environment files={"./hdri/night-sky.hdr"} background />
           <OrbitControls />
           <Sky />
-          <fog attach="fog" color="white" near={80} far={130} />
+          <fog attach="fog" color="white" near={75} far={90} />
           <Suspense>
           <Physics debug>
             <Experience />
