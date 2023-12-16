@@ -2,8 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 import { Suspense } from "react";
 import { Physics } from "@react-three/rapier";
-import { KeyboardControls, Stars, Sky, Environment } from "@react-three/drei";
-import "./App.css";
+import { KeyboardControls, Stars, Sky, Environment, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import UI from "./UI";
 function App() {
@@ -25,8 +24,9 @@ function App() {
         >
           <Perf />
           <Environment files={"./hdri/night-sky.hdr"} background />
+          <OrbitControls />
           <Sky />
-          <fog attach="fog" color="white" near={25} far={50} />
+          <fog attach="fog" color="white" near={80} far={130} />
           <Suspense>
           <Physics debug>
             <Experience />

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Lighting() {
   return (
     <>
-          <ambientLight intensity={1} color={"#F0F8FF"}/>
+      <ambientLight intensity={1} color={"#F0F8FF"} />
       <directionalLight
         position={[5, 5, 5]}
         intensity={5}
@@ -11,7 +11,7 @@ function Lighting() {
         color={"#FFFACD"}
       />
     </>
-  )
+  );
 }
 
-export default Lighting
+export default Lighting;

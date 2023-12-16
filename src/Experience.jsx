@@ -1,22 +1,30 @@
-import { Doggo } from "./Doggo";
+import { Doggo } from "./characters/Doggo";
 import Lighting from "./Lighting";
-import Ground from "./Ground";
-import LogHut from "./LogHut";
-import ChristmasTreeCookie from "./ChristmasTreeCookie";
-import GroundSnow from "./GroundSnow";
-import Penguin from './Penguin'
+import { Box } from "@react-three/drei";
+import { useMemo } from "react";
+import { useControls } from "leva";
+import World from './World'
 
 function Experience() {
+  const options = useMemo(() => {
+    return {
+      x: { value: 0, step: 0.01 },
+      y: { value: 0, step: 0.01 },
+      z: { value: 0, step: 0.01 },
+    };
+  }, []);
+
+  // const boxPosition = useControls("box position", options);
+  // const pos = {x: boxPosition.x, y: boxPosition.y, z: boxPosition.z}
+  // const pos = [boxPosition.x, boxPosition.y, boxPosition.z]
+  const pos = [59.2, 5.08, 44.79];
+
   return (
     <>
-
       <Lighting />
+      <World />
+      {/* <Box position={pos} /> */}
       <Doggo />
-      <Ground />
-      {/* <Penguin /> */}
-      {/* <GroundSnow /> */}
-      <LogHut />
-      <ChristmasTreeCookie />
     </>
   );
 }
