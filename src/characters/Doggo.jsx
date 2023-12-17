@@ -7,7 +7,10 @@ import { OrbitControls } from "@react-three/drei";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useControls } from "leva";
+
 import useDog from "../store/useDog";
+import useGame from "../store/useGame";
+
 import { useFrame, useThree } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
 import { CuboidCollider, RigidBody, vec3 } from "@react-three/rapier";
@@ -16,6 +19,8 @@ import * as THREE from "three";
 
 export function Doggo(props) {
   const [subscribeKeys, getKeys] = useKeyboardControls();
+
+  const start = useGame((state) => state.start)
 
   const dogActiveAnim = useDog((state) => state.dogActiveAnim);
   const run = useDog((state) => state.dogRun);
@@ -58,14 +63,28 @@ export function Doggo(props) {
     // updateDogPosition(dogPos)
   });
 
-  const pos = [-20, 0, 0];
+  useEffect(() => {
+    const unsubscribeAny = subscribeKeys(
+      () =>
+      {
+          start()
+      }
+  )
+
+  
+    return () => {
+      unsubscribeAny()
+    }
+  }, [])
+  
+
 
   return (
     <>
       <Ecctrl
         name={"doggo"}
         ref={doggo}
-        position={pos}
+        position={[-20, 0, 0]}
         floatHeight={0.03}
         maxVelLimit={15}
         sprintMult={3}

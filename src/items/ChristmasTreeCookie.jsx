@@ -8,67 +8,49 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useControls } from "leva";
 import useGame from "../store/useGame";
+import { useFrame } from "@react-three/fiber";
 
-export default function Model({position, rotation=[0,0,0]}, ...props) {
-
-
+export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
   const { nodes, materials } = useGLTF(
     "./models/cookies/ChristmasTreeCookie.glb"
   );
-  const [isCollected, setIsCollected] = useState(false); // State to track cookie collection
-
-  const options = useMemo(() => {
-    return {
-      x: { value: 0, min: -1, max: Math.PI * 2, step: 0.01 },
-      y: { value: 0, min: -1, max: Math.PI * 2, step: 0.01 },
-      z: { value: 0, min: -1, max: Math.PI * 2, step: 0.01 },
-    };
-  }, []);
-
-  // const colliderPos = useControls("collider", options);
-  // const colliderArgs = useControls("colliderArgs", options);
+  // const [isCollected, setIsCollected] = useState(false); 
 
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 2, 0.63];
 
-
-
   const increaseScore = useGame((state) => state.increaseScore)
 
+  useFrame(() => {
+    // console.log(increaseScore)
+    console.log(useGame.getState())
+  })
 
-  if (isCollected) {
-    return null;
-  } else if (!isCollected) {
-    return (
-      <group
-      position={position}
-      rotation={rotation}
-        dispose={null}
-        {...props}
-      >
-        <RigidBody type="kinematicPosition" colliders={false}>
-          <CuboidCollider
-            onCollisionEnter={(e) => {
-              if (e.other.rigidBodyObject.name === "doggo")
+  return (
+    <group position={position} rotation={rotation} dispose={null} {...props}>
+      <RigidBody type="kinematicPosition" colliders={false}>
+        <CuboidCollider
+          onCollisionEnter={(e) => {
+
+            if (e.other.rigidBodyObject.name === "doggo")
+            console.log("collision!")
               increaseScore()
-                setIsCollected(true);
-            }}
-            position={posArr}
-            args={argsArr}
-          />
+              // setIsCollected(true);
+          }}
+          
+          position={posArr}
+          args={argsArr}
+        />
 
-          <mesh
-            geometry={nodes.Christmas_tree_1.geometry}
-            material={materials["Material.001"]}
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={0.02}
-          />
-        </RigidBody>
-        </group>
-        )
-      
-    
-  }
+        <mesh
+          geometry={nodes.Christmas_tree_1.geometry}
+          material={materials["Material.001"]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.02}
+        />
+      </RigidBody>
+    </group>
+  );
 }
 
 useGLTF.preload("./models/cookies/ChristmasTreeCookie.glb");
