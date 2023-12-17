@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mountains+of+Christmas&display=swap");
 
+:root {
+  --main-color: #ceac5c;
+}
+
 html,
 body,
 #root {
@@ -12,10 +16,50 @@ body,
   font-size: 64px;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .UI {
-  position: absolute;
   color: white;
+  position: absolute;
   z-index: 50;
-  font-family: "Bebas Neue", sans-serif;
-  text-shadow: #000 1px 0 10px;  /* font-family: "Mountains of Christmas", serif; */
+  width: 96%;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Mountains of Christmas", sans-serif;
+  text-shadow: #000000 12px 0 15px;
+  user-select: none;
+  pointer-events: none;
+  margin-left: 2%;
+  margin-right: 2%;
+
+  padding-top: 2%;
+}
+
+.UI-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.time-remaining {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.timer-icon {
+  padding-right: 36px;
 }

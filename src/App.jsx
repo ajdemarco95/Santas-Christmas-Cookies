@@ -23,7 +23,7 @@ function App() {
           shadows
           camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 110 }}
         >
-          <Perf />
+          {/* <Perf /> */}
           <Environment files={"./hdri/night-sky.hdr"} background />
           <OrbitControls />
           <Sky />
