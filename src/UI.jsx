@@ -5,9 +5,10 @@ function UI() {
 
   const currentScore = useGame((state) => state.currentScore)
 
+
   return (
     <div className='UI'>
-      <div className="">Current Score: {currentScore}</div>
+      <div className="">Cookies Remaining: {5-  currentScore}</div>
     </div>
   )
 }

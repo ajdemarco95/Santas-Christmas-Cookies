@@ -66,16 +66,15 @@ export function Doggo(props) {
         name={"doggo"}
         ref={doggo}
         position={pos}
-
         floatHeight={0.03}
-
-
         maxVelLimit={15}
         sprintMult={3}
         camInitDis={-20}
         camInitDir={{ x: 0.4, y: Math.PI * -0.5, z: 0 }}
         characterInitDir={Math.PI * -0.5}
       >
+                    {/* <CuboidCollider position={[0, 0, 0]} sensor  args={[1, .3, 1]}  /> */}
+
         <group
           position={[0, -0.65, 0]}
           scale={0.04}
@@ -84,7 +83,7 @@ export function Doggo(props) {
           dispose={null}
         >
           <group name="Scene">
-            <group name="Arm_Labrador" scale={1}>
+            <group name="Arm_Labrador" >
               <primitive object={nodes.Root_bone} />
               <skinnedMesh
                 castShadow

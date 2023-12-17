@@ -28,9 +28,8 @@ export default function Model(props) {
   // const colliderArgs = useControls("colliderArgs", options);
 
   const posArr = [-0.5, 0.73, 0.32];
-  const argsArr = [0.76, 0.81, 0.63];
+  const argsArr = [0.76, 2, 0.63];
 
-  console.log(position)
 
 
   const increaseScore = useGame((state) => state.increaseScore)

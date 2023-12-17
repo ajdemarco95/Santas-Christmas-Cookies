@@ -29,7 +29,7 @@ function App() {
           <Sky />
           <fog attach="fog" color="white" near={75} far={90} />
           <Suspense>
-          <Physics debug>
+          <Physics >
             <Experience />
           </Physics>
           </Suspense>

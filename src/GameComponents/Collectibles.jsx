@@ -8,9 +8,7 @@ import { useGLTF } from '@react-three/drei'
 import ChristmasTreeCookie from '../items/ChristmasTreeCookie'
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('models/world/split/Collectibles.glb')
-  console.log(nodes.Scene.children)
-  
+  const { nodes,  } = useGLTF('models/world/split/Collectibles.glb')
   return (
     <group {...props} dispose={null}>
       <ChristmasTreeCookie position={[10.298, -17.887, 104.126]}/>

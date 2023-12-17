@@ -17,5 +17,5 @@ body,
   color: white;
   z-index: 50;
   font-family: "Bebas Neue", sans-serif;
-  /* font-family: "Mountains of Christmas", serif; */
+  text-shadow: #000 1px 0 10px;  /* font-family: "Mountains of Christmas", serif; */
 }
