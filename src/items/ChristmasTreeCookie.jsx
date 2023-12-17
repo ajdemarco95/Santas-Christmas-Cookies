@@ -14,20 +14,17 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
   const { nodes, materials } = useGLTF(
     "./models/cookies/ChristmasTreeCookie.glb"
   );
-  // const [isCollected, setIsCollected] = useState(false); 
+  const [isCollected, setIsCollected] = useState(false); 
 
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 2, 0.63];
 
   const increaseScore = useGame((state) => state.increaseScore)
 
-  useFrame(() => {
-    // console.log(increaseScore)
-    console.log(useGame.getState())
-  })
 
+ if (!isCollected) {
   return (
-    <group position={position} rotation={rotation} dispose={null} {...props}>
+    <group  position={position} rotation={rotation} dispose={null} {...props}>
       <RigidBody type="kinematicPosition" colliders={false}>
         <CuboidCollider
           onCollisionEnter={(e) => {
@@ -35,7 +32,7 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
             if (e.other.rigidBodyObject.name === "doggo")
             console.log("collision!")
               increaseScore()
-              // setIsCollected(true);
+              setIsCollected(true);
           }}
           
           position={posArr}
@@ -51,6 +48,10 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
       </RigidBody>
     </group>
   );
+
+ } else {
+  return null;
+ }
 }
 
 useGLTF.preload("./models/cookies/ChristmasTreeCookie.glb");
