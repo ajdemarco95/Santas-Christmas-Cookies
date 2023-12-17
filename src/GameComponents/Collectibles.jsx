@@ -5,16 +5,25 @@ Command: npx gltfjsx@6.2.15 -k /Users/ajdemarco/Documents/Github/fetch-game/publ
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import ChristmasTreeCookie from '../items/ChristmasTreeCookie'
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('models/world/split/Collectibles.glb')
+  console.log(nodes.Scene.children)
+  
   return (
     <group {...props} dispose={null}>
-      <mesh name="collectible_1" geometry={nodes.collectible_1.geometry} material={materials['Material.003']} position={[10.298, -17.887, 104.126]} />
-      <mesh name="collectible_1001" geometry={nodes.collectible_1001.geometry} material={materials['Material.005']} position={[-57.18, -17.887, 86.029]} />
+      <ChristmasTreeCookie position={[10.298, -17.887, 104.126]}/>
+      <ChristmasTreeCookie position={[-57.18, -17.887, 86.029]}/>
+      <ChristmasTreeCookie position={[-81.854, -17.887, 91.397]}/>
+      <ChristmasTreeCookie position={[42.898, -18.49, 62.432]}/>
+      <ChristmasTreeCookie position={[-117.789, -3.275, 34.052]}/>
+
+      {/* <mesh name="collectible_1" geometry={nodes.collectible_1.geometry} material={materials['Material.003']} position={[10.298, -17.887, 104.126]} /> */}
+       {/* <mesh name="collectible_1001" geometry={nodes.collectible_1001.geometry} material={materials['Material.005']} position={[-57.18, -17.887, 86.029]} />
       <mesh name="collectible_1002" geometry={nodes.collectible_1002.geometry} material={materials['Material.006']} position={[-81.854, -17.887, 91.397]} />
-      <mesh name="collectible_1003" geometry={nodes.collectible_1003.geometry} material={materials['Material.007']} position={[42.898, -18.49, 62.432]} />
-      <mesh name="collectible_1004" geometry={nodes.collectible_1004.geometry} material={materials['Material.009']} position={[-117.789, -3.275, 34.052]} />
+      <mesh name="collectible_1003" geometry={nodes.collectible_1003.geometry} material={materials['Material.007']} position={[42.898, -18.49, 62.432]} /> */}
+      {/* <mesh name="collectible_1004" geometry={nodes.collectible_1004.geometry} material={materials['Material.009']} position={[-117.789, -3.275, 34.052]} /> */}
     </group>
   )
 }

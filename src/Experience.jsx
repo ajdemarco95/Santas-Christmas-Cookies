@@ -1,8 +1,11 @@
+import { useMemo } from "react";
 import { Doggo } from "./characters/Doggo";
 import Lighting from "./Lighting";
+import Collectibles from './GameComponents/Collectibles'
+
 import { Box } from "@react-three/drei";
-import { useMemo } from "react";
 import { useControls } from "leva";
+
 import World from './World'
 
 function Experience() {
@@ -22,6 +25,7 @@ function Experience() {
   return (
     <>
       <Lighting />
+      <Collectibles />
       <World />
       {/* <Box position={pos} /> */}
       <Doggo />

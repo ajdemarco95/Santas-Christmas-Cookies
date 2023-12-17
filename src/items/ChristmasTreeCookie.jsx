@@ -10,6 +10,7 @@ import { useControls } from "leva";
 import useGame from "../store/useGame";
 
 export default function Model(props) {
+  const position = props.position
   const { nodes, materials } = useGLTF(
     "./models/cookies/ChristmasTreeCookie.glb"
   );
@@ -29,6 +30,8 @@ export default function Model(props) {
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 0.81, 0.63];
 
+  console.log(position)
+
 
   const increaseScore = useGame((state) => state.increaseScore)
 
@@ -38,10 +41,8 @@ export default function Model(props) {
   } else if (!isCollected) {
     return (
       <group
-        position-x={2}
-        position-z={5}
-        position-y={0.15}
-        rotation-y={Math.PI}
+      position={position}
+      rotation-y={Math.PI}
         dispose={null}
         {...props}
       >

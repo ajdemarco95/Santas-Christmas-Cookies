@@ -10,7 +10,7 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('./models/world/split/LowerLevel.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh name="collectible_1" geometry={nodes.collectible_1.geometry} material={materials['Material.003']} position={[10.298, -15.771, 104.126]} />
+      {/* <mesh name="collectible_1" geometry={nodes.collectible_1.geometry} material={materials['Material.003']} position={[10.298, -15.771, 104.126]} /> */}
       <mesh name="1222_Iceberg" geometry={nodes['1222_Iceberg'].geometry} material={materials.ice} position={[38.586, -47.496, 136.851]} rotation={[Math.PI / 2, 0, 0]} scale={0.718} />
       <mesh name="1222_Iceberg001" geometry={nodes['1222_Iceberg001'].geometry} material={materials.ice} position={[-1.907, -21.454, 135.62]} rotation={[Math.PI / 2, 0, 0]} scale={0.061} />
       <mesh name="1222_Iceberg002" geometry={nodes['1222_Iceberg002'].geometry} material={materials.ice} position={[-8.327, -21.736, 133.032]} rotation={[Math.PI / 2, 0, -2.708]} scale={[0.177, 0.097, 0.129]} />

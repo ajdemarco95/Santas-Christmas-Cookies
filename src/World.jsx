@@ -8,7 +8,6 @@ import Santa from "./characters/Santa";
 import SantaScene from "./WorldComponents/SantaScene";
 import Start from "./WorldComponents/Start";
 import Village from "./WorldComponents/Village";
-import Collectibles from './GameComponents/Collectibles'
 import { RigidBody, CuboidCollider } from "@react-three/rapier";
 
 export default function Model() {
@@ -16,7 +15,6 @@ export default function Model() {
     <>
       <RigidBody type="fixed" colliders="hull">
         <CuboidCollider position={[3, -29, 0]} args={[1, 0.5, 1]} />
-        <Collectibles />
         <Start />
         <AlienCave />
         <Church />
