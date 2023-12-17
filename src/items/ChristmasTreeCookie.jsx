@@ -9,8 +9,9 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useControls } from "leva";
 import useGame from "../store/useGame";
 
-export default function Model(props) {
-  const position = props.position
+export default function Model({position, rotation=[0,0,0]}, ...props) {
+
+
   const { nodes, materials } = useGLTF(
     "./models/cookies/ChristmasTreeCookie.glb"
   );
@@ -41,7 +42,7 @@ export default function Model(props) {
     return (
       <group
       position={position}
-      rotation-y={Math.PI}
+      rotation={rotation}
         dispose={null}
         {...props}
       >

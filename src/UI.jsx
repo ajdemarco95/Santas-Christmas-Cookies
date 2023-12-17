@@ -10,6 +10,8 @@ function UI() {
     const startTime = Date.now();
 
     const unsubscribeEffect = addEffect(() => {
+
+      if (!time.current) return
       // const state = useGame.getState();
       // const startTime = Date.now()
       let elapsedTime = 0;
