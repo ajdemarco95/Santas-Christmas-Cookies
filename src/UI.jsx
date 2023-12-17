@@ -11,9 +11,7 @@ function UI() {
     const unsubscribeEffect = addEffect(() => {
       const state = useGame.getState();
 
-      if (state) {
-        // console.log(state)
-
+      // if (state) {
         let elapsedTime = 0;
         if (state.phase === "playing") {
           elapsedTime = Date.now() - state.startTime;
@@ -38,7 +36,7 @@ function UI() {
             time.current.textContent = textString
           }  
         }
-      }
+      // }
     });
     return () => {
       unsubscribeEffect;

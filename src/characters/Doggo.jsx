@@ -45,7 +45,9 @@ export function Doggo(props) {
     actions[names[dogActiveAnim]].reset().fadeIn(0.5).play();
 
     return () => {
-      actions[names[dogActiveAnim]].fadeOut(0.5);
+      if (actions[names[dogActiveAnim]]) {
+        actions[names[dogActiveAnim]].fadeOut(0.5);
+      }
     };
   }, [dogActiveAnim]);
 

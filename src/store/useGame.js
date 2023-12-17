@@ -6,7 +6,7 @@ export default create((set) => ({
   endTime: 0,
   phase: "ready",
   increaseScore: () =>
-  set((state) => ({ currentScore: state.currentScore + 1 })),
+    set((state) => ({ currentScore: state.currentScore + 1 })),
   start: () => {
     set((state) => {
       if (state.phase === "ready") {

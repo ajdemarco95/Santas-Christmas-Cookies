@@ -63,3 +63,37 @@ body,
 .timer-icon {
   padding-right: 36px;
 }
+
+
+.menu-screen {
+  font-family: "Mountains of Christmas", sans-serif;
+  text-align: center;
+}
+
+.menu-menu {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-options {
+  margin-top: 10%;
+}
+
+.menu-row {
+  background-color: aqua;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.menu-row:hover {
+  background-color: red;
+}
+
+.return-btn {
+  margin-top: 10%;
+}
