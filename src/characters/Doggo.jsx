@@ -93,9 +93,8 @@ export function Doggo(props) {
         camInitDis={-20}
         camInitDir={{ x: 0.4, y: Math.PI * -0.5, z: 0 }}
         characterInitDir={Math.PI * -0.5}
+        onCollisionEnter={(e) => {console.log(e.other.rigidBodyObject.name)}}
       >
-                    {/* <CuboidCollider position={[0, 0, 0]} sensor  args={[1, .3, 1]}  /> */}
-
         <group
           position={[0, -0.65, 0]}
           scale={0.04}

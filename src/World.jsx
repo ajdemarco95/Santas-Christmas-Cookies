@@ -13,7 +13,7 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 export default function Model() {
   return (
     <>
-      <RigidBody type="fixed" colliders="hull">
+      <RigidBody name="world item" type="fixed" colliders="hull">
         <CuboidCollider position={[3, -29, 0]} args={[1, 0.5, 1]} />
         <Start />
         <AlienCave />
@@ -24,7 +24,7 @@ export default function Model() {
         <SantaScene />
         <Village />
       </RigidBody>
-      <RigidBody type="fixed" colliders="trimesh">
+      <RigidBody name="ground" type="fixed" colliders="trimesh">
         <CuboidCollider position={[3, -20, 0]} args={[1, 0.5, 1]} />
         <Floor />
         <Bridge />
