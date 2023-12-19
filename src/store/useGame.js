@@ -23,7 +23,7 @@ export default create((set) => ({
   },
   restart: () => {
     set((state) => {
-      if (state.phase === "playing" || state.phase === "ended")
+      if (state.phase === "playing" || state.phase === "ended" || state.phase === "ready")
         return { phase: "ready", currentScore: 0 };
     });
     return {};
