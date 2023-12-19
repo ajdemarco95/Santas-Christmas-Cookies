@@ -31,7 +31,7 @@ export default create((set) => ({
   end: () => {
     set((state) => {
       if (state.phase === "playing") {
-        return { phase: "ended", endTime: Date.now(), currentScore: 0 };
+        return { phase: "ended", endTime: Date.now() };
       }
       return {};
     });
