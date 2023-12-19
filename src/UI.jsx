@@ -111,11 +111,11 @@ function UI(props) {
         <div className="UI-container">
           <div className="UI">
             <div className="top-row">
-              <div className="time-remaining">
+              <div className="time-remaining in-game-shadow">
                 <div className="timer-icon">⏱️</div>
                 <div ref={time}> {/* Time Imperatively added here */}</div>
               </div>
-              <div className="cookies-remaining">
+              <div className="cookies-remaining in-game-shadow">
                 Cookies Found: {currentScore} / 5
               </div>
             </div>
