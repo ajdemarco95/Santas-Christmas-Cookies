@@ -8,16 +8,20 @@ import IceFloor from "./WorldComponents/IceFloor";
 import MerryChristmasText from "./MerryChristmasText";
 import { useFrame } from "@react-three/fiber";
 import useGame from "./store/useGame";
+import MerryChristmasCane from './WorldComponents/MerryChristmasCane'
+
+
 function Experience() {
-  useFrame(() => {
-    console.log(useGame.getState())
+  // useFrame(() => {
+  //   console.log(useGame.getState())
     
-  });
+  // });
   return (
     <>
       <World />
       <Doggo />
-      <MerryChristmasText />
+      {/* <MerryChristmasText /> */}
+      <MerryChristmasCane/>
       <RigidBody
         friction={0.5}
         name="ice"
