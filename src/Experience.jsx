@@ -21,12 +21,14 @@ function Experience() {
       <World />
       <Doggo />
       {/* <MerryChristmasText /> */}
+      <RigidBody type="fixed" colliders={false}>
+      <CuboidCollider position={[15.5, -6.056, 61.5]} rotation={[1.579, 0, 2.455]} args={[8, 2, 2.3]} />
       <MerryChristmasCane/>
+      </RigidBody>
       <RigidBody
         friction={0.5}
         name="ice"
         colliders="hull"
-        restitution={2}
         type="fixed"
       >
         <CuboidCollider position={[3, -29, 0]} args={[1, 0.5, 1]} />

@@ -22,7 +22,7 @@ export default function Model() {
     <Lighting />
     <Collectibles />
       <RigidBody name="world item" type="fixed" colliders="hull">
-        <CuboidCollider position={[3, -29, 0]} args={[1, 0.5, 1]} />
+        <CuboidCollider type="fixed" position={[27.011, -6.113, 58.022]} args={[2, 9, 2]} />
         <Start />
         <AlienCave />
         <Church />
