@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.2.15 -k /Users/ajdemarco/Documents/Github/fetch-game/publ
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Model(props) {
-  const { nodes, materials } = useGLTF('./models/world/split/Village.glb')
+export function Model(props) {
+  const { nodes, materials } = useGLTF('/Village.glb')
   return (
     <group {...props} dispose={null}>
       <group name="Candy_Cane" position={[2.688, -0.018, 29.048]} rotation={[-Math.PI, 1.308, -Math.PI]} scale={[0.277, 1.856, 0.2]}>
@@ -103,4 +103,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('./models/world/split/Village.glb')
+useGLTF.preload('/Village.glb')

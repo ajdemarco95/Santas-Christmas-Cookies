@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.2.15 -k /Users/ajdemarco/Documents/Github/fetch-game/publ
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Model(props) {
-  const { nodes, materials } = useGLTF('./models/world/split/IceFloor.glb')
+export function Model(props) {
+  const { nodes, materials } = useGLTF('/IceFloor.glb')
   return (
     <group {...props} dispose={null}>
       <mesh name="IceFloor" geometry={nodes.IceFloor.geometry} material={materials.ice} position={[97.403, -19.655, -34.428]} rotation={[-0.013, -0.208, 0.001]} scale={[1, 0.32, 1]} />
@@ -15,4 +15,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('./models/world/split/IceFloor.glb')
+useGLTF.preload('/IceFloor.glb')

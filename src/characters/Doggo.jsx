@@ -86,13 +86,13 @@ export function Doggo(props) {
       <Ecctrl
         name={"doggo"}
         ref={doggo}
-        position={[-20, -7, 0]}
+        position={[0, -7, 0]}
         floatHeight={0.03}
         maxVelLimit={15}
         sprintMult={1.5}
         camInitDis={-20}
-        camInitDir={{ x: 0.4, y: Math.PI * -0.5, z: 0 }}
-        characterInitDir={Math.PI * -0.5}
+        camInitDir={{ x: 0.4, y: 0, z: 0 }}
+        // characterInitDir={Math.PI * -0.5}
         onCollisionEnter={(e) => {console.log(e.other.rigidBodyObject.name)}}
       >
         <group

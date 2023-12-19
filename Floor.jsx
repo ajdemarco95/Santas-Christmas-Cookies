@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.2.15 -k /Users/ajdemarco/Documents/Github/fetch-game/publ
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Model(props) {
-  const { nodes, materials } = useGLTF('./models/world/split/Floor.glb')
+export function Model(props) {
+  const { nodes, materials } = useGLTF('/Floor.glb')
   return (
     <group {...props} dispose={null}>
       <mesh name="ground_church" geometry={nodes.ground_church.geometry} material={materials['ground_snow.001']} position={[-38.352, -5.946, 138.887]} rotation={[-Math.PI, 1.014, -Math.PI]} />
@@ -33,8 +33,7 @@ export default function Model(props) {
         <mesh name="Scene009_1" geometry={nodes.Scene009_1.geometry} material={materials['road_asphalt.001']} />
       </group>
     </group>
-
   )
 }
 
-useGLTF.preload('./models/world/split/Floor.glb')
+useGLTF.preload('/Floor.glb')
