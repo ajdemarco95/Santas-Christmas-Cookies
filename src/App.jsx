@@ -14,10 +14,15 @@ import { Perf } from "r3f-perf";
 import UI from "./UI";
 import Menu from './Menu'
 import useGame from "./store/useGame";
+import useSound from 'use-sound'
+
 function App() {
   const [appState, setAppState] = useState("menu");
 
   const restart = useGame((state) => state.restart)
+
+  const [loopBg, loopBgOpt] = useSound('./audio/wind.mp3', {loop: true, volume: 0.05})
+
 
   const handleKeyPress = (event) => {
     if (event.key === 'Escape') {
@@ -34,6 +39,12 @@ function App() {
       window.removeEventListener('keydown', handleKeyPress);
     };
   }, [])
+
+  useEffect(() => {
+    loopBgOpt.stop()
+
+  }, [appState])
+  
   
 
   if (appState === "running") {
@@ -49,7 +60,7 @@ function App() {
             { name: "run", keys: ["Shift"] },
           ]}
         >
-          <UI setAppState={setAppState}/>
+          <UI loopBg={loopBg} setAppState={setAppState}/>
           <Canvas
             shadows
             camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
@@ -70,6 +81,7 @@ function App() {
       </>
     );
   }  else {
+    // loopBgOpt.pause();
     return (<Menu appState={appState} setAppState={setAppState}/>)
   }
 

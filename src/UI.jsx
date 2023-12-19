@@ -11,7 +11,8 @@ function UI(props) {
   const restart = useGame((state) => state.restart);
 
 
-  const [play] = useSound('./audio/win.mp3')
+  const [playWin] = useSound('./audio/win.mp3', {volume: 0.2})
+
 
   const time = useRef();
 
@@ -64,7 +65,7 @@ function UI(props) {
   }
 
   if (phase === "ended" && !exploring) {
-    play()
+    playWin()
     return (
       <>
         <div className="UI-container">
@@ -111,6 +112,7 @@ function UI(props) {
       </>
     );
   } else {
+    props.loopBg();
     return (
       <>
         <div className="UI-container">
