@@ -86,7 +86,7 @@ export function Doggo(props) {
       <Ecctrl
         name={"doggo"}
         ref={doggo}
-        position={[-20, 0, 0]}
+        position={[-20, -7, 0]}
         floatHeight={0.03}
         maxVelLimit={15}
         sprintMult={1.5}

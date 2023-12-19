@@ -51,8 +51,8 @@ export default function Model(props) {
       <mesh name="cliff_group_01044" geometry={nodes.cliff_group_01044.geometry} material={materials['rock_dark.001']} position={[48.224, -16.296, 27.433]} rotation={[-2.749, -1.061, -2.377]} scale={[1, 1, 5.56]} />
       <mesh name="cliff_group_01050" geometry={nodes.cliff_group_01050.geometry} material={materials['rock_dark.001']} position={[22.945, -6.15, 42.552]} rotation={[2.63, -0.812, 1.78]} scale={0.467} />
       <mesh name="cliff_group_01001" geometry={nodes.cliff_group_01001.geometry} material={materials['rock_dark.001']} position={[-3.986, -11.569, -30.356]} rotation={[-3.071, 0.29, -2.741]} />
-      <mesh name="cliff_group_01003" geometry={nodes.cliff_group_01003.geometry} material={materials['rock_dark.001']} position={[9.378, -10.155, -1.074]} rotation={[-1.538, 1.503, 1.958]} />
-      <mesh name="cliff_group_01005" geometry={nodes.cliff_group_01005.geometry} material={materials['rock_dark.001']} position={[8.776, -4.437, 1.346]} rotation={[-2.525, 1.473, -0.27]} />
+      {/* <mesh name="cliff_group_01003" geometry={nodes.cliff_group_01003.geometry} material={materials['rock_dark.001']} position={[9.378, -10.155, -1.074]} rotation={[-1.538, 1.503, 1.958]} /> */}
+      {/* <mesh name="cliff_group_01005" geometry={nodes.cliff_group_01005.geometry} material={materials['rock_dark.001']} position={[8.776, -4.437, 1.346]} rotation={[-2.525, 1.473, -0.27]} /> */}
       <mesh name="cliff_group_01007" geometry={nodes.cliff_group_01007.geometry} material={materials['rock_dark.001']} position={[-7.607, -5.079, 26.029]} rotation={[-0.063, 0.46, -2.77]} />
       <mesh name="cliff_03" geometry={nodes.cliff_03.geometry} material={materials['rock_dark.001']} position={[-84.947, -7.263, 35.757]} rotation={[-1.991, -1.096, -2.17]} />
       <mesh name="cliff_03001" geometry={nodes.cliff_03001.geometry} material={materials['rock_dark.001']} position={[-15.882, -15.03, 34.021]} rotation={[2.602, -1.029, 2.754]} />
