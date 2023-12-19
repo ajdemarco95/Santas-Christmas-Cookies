@@ -12,6 +12,7 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import Lighting from "./Lighting";
 import Collectibles from './GameComponents/Collectibles'
 import { useRef, useEffect } from "react";
+import FallCollider from './WorldComponents/FallCollider'
 
 export default function Model() {
   const groundRef = useRef()
@@ -36,6 +37,7 @@ export default function Model() {
         <Floor />
         <Bridge />
       </RigidBody>
+      <FallCollider />
     </>
   );
 }
