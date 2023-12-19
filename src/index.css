@@ -33,10 +33,10 @@ body,
   font-family: "Mountains of Christmas", sans-serif;
   text-shadow: #000000 12px 0 15px;
   user-select: none;
-  pointer-events: none;
   margin-left: 2%;
   margin-right: 2%;
-
+  display: flex;
+  flex-direction: column;
   padding-top: 2%;
 }
 
@@ -96,4 +96,77 @@ body,
 
 .return-btn {
   margin-top: 10%;
+}
+
+.end-modal {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 36px;
+  background-color: #000000;
+  border-radius: 36px;
+  text-align: center;
+}
+
+.end-modal-detail {
+  font-size: 36px;
+}
+
+.btn {
+  background-color: darkgray;
+}
+.btn:hover {
+  background-color: gray;
+}
+
+.end-modal-btn {
+  width: 30%;
+  font-size: 36px;
+  margin-top: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.btn-1 {
+  margin-right: 24px;
+}
+
+.end-modal-submit-score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+}
+
+.submit-score-name-input {
+  background-color: black;
+  color: white;
+  font-size: 36px;
+  font-family: "Mountains of Christmas", sans-serif;
+  letter-spacing: .1rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+}
+
+
+.submit-score-btn {
+  border-end-end-radius: 40px;
+  border-start-end-radius: 40px;
+  padding-right: 20px;
+  padding-left: 12px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.end-modal-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

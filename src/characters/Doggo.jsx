@@ -89,7 +89,7 @@ export function Doggo(props) {
         position={[-20, 0, 0]}
         floatHeight={0.03}
         maxVelLimit={15}
-        sprintMult={3}
+        sprintMult={1.5}
         camInitDis={-20}
         camInitDir={{ x: 0.4, y: Math.PI * -0.5, z: 0 }}
         characterInitDir={Math.PI * -0.5}

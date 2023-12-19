@@ -13,13 +13,15 @@ import {
 import { Perf } from "r3f-perf";
 import UI from "./UI";
 import Menu from './Menu'
-
+import useGame from "./store/useGame";
 function App() {
   const [appState, setAppState] = useState("menu");
 
+  const restart = useGame((state) => state.restart)
 
   const handleKeyPress = (event) => {
     if (event.key === 'Escape') {
+      restart()
       setAppState("menu")
     }
   };
@@ -44,9 +46,10 @@ function App() {
             { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
             { name: "rightward", keys: ["ArrowRight", "KeyD"] },
             { name: "jump", keys: ["Space"] },
+            { name: "run", keys: ["Shift"] },
           ]}
         >
-          <UI />
+          <UI setAppState={setAppState}/>
           <Canvas
             shadows
             camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
@@ -57,7 +60,7 @@ function App() {
             <Sky />
             <fog attach="fog" color="white" near={10} far={90} />
             <Suspense>
-              <Physics debug>
+              <Physics >
                 <Experience />
                 <Preload all />
               </Physics>
