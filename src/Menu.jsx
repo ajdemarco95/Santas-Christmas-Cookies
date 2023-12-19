@@ -18,6 +18,7 @@ function Menu({appState, setAppState}) {
     return (
       <div className="menu-screen">
         <div className="menu-menu">
+          <div className="">⭐️</div>
           <div className="">🎄🦮🎅🎄</div>
           <img className="title-img" src="./svg/title.svg" alt="" />
           {/* <div className="menu-title"><s>Santa's</s> Lilly's Christmas Cookies</div> */}

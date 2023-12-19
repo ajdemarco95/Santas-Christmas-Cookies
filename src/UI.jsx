@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import useGame from "./store/useGame";
 import { addEffect } from "@react-three/fiber";
+import useSound from 'use-sound'
 
 function UI(props) {
   const currentScore = useGame((state) => state.currentScore);
@@ -8,6 +9,9 @@ function UI(props) {
   const startTime = useGame((state) => state.startTime);
   const endTime = useGame((state) => state.endTime);
   const restart = useGame((state) => state.restart);
+
+
+  const [play] = useSound('./audio/win.mp3')
 
   const time = useRef();
 
@@ -60,6 +64,7 @@ function UI(props) {
   }
 
   if (phase === "ended" && !exploring) {
+    play()
     return (
       <>
         <div className="UI-container">

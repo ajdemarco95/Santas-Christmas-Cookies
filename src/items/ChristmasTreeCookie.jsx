@@ -9,6 +9,7 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useControls } from "leva";
 import useGame from "../store/useGame";
 import { useFrame } from "@react-three/fiber";
+import useSound from 'use-sound'
 
 export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
   const { nodes, materials } = useGLTF(
@@ -21,6 +22,8 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
 
   const increaseScore = useGame((state) => state.increaseScore)
 
+  const [play] = useSound('./audio/chomp.mp3')
+
 
  if (!isCollected) {
   return (
@@ -28,7 +31,7 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
       <RigidBody type="kinematicPosition" colliders={false}>
         <CuboidCollider
           onCollisionEnter={(e) => {
-
+            play()
             if (e.other.rigidBodyObject.name === "doggo")
             console.log("collision!")
               increaseScore()

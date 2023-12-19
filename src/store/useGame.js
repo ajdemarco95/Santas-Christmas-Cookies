@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 export default create((set) => ({
   currentScore: 0,
-  totalCookies: 5,
+  totalCookies: 1,
   startTime: 0,
   endTime: 0,
   phase: "ready",
