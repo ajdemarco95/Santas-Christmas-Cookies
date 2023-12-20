@@ -10,11 +10,11 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('./models/world/split/Village.glb')
   return (
     <group {...props} dispose={null}>
-      <group name="Candy_Cane" position={[2.688, -0.018, 29.048]} rotation={[-Math.PI, 1.308, -Math.PI]} scale={[0.277, 1.856, 0.2]}>
+      {/* <group name="Candy_Cane" position={[2.688, -0.018, 29.048]} rotation={[-Math.PI, 1.308, -Math.PI]} scale={[0.277, 1.856, 0.2]}>
         <mesh name="Object_0" geometry={nodes.Object_0.geometry} material={materials.candy_green} />
         <mesh name="Object_0_1" geometry={nodes.Object_0_1.geometry} material={materials.candy_white} />
         <mesh name="Object_0_2" geometry={nodes.Object_0_2.geometry} material={materials.candy_red} />
-      </group>
+      </group> */}
       <group name="House_1" position={[64.067, -5.444, 128.518]} rotation={[Math.PI, -0.344, Math.PI]} scale={7}>
         <mesh name="Cube145" geometry={nodes.Cube145.geometry} material={materials.Plaster} />
         <mesh name="Cube145_1" geometry={nodes.Cube145_1.geometry} material={materials.Wood} />

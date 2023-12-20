@@ -26,8 +26,8 @@ function Menu({appState, setAppState}) {
           <div className="menu-detail">...without eating them!!!</div>
           <div className="menu-options mx-auto">
             <div onClick={handlePlay} className="menu-row btn">Play Game</div>
-            <div onClick={handleHighScores} className="menu-row btn" >High Scores</div>
-            <div className="menu-row btn">Settings</div>
+            {/* <div onClick={handleHighScores} className="menu-row btn" >High Scores</div> */}
+            {/* <div className="menu-row btn">Settings</div> */}
           </div>
         </div>
       </div>

@@ -85,7 +85,7 @@ function UI(props) {
               <div className="">
                 Final Score: {formatMilliseconds(endTime - startTime)}
               </div>
-              <div className="end-modal-submit-score mx-auto">
+              {/* <div className="end-modal-submit-score mx-auto">
                 <input
                   className="submit-score-name-input"
                   type="text"
@@ -93,7 +93,7 @@ function UI(props) {
                   placeholder="Enter Name..."
                 />
                 <div className="submit-score-btn btn">Submit</div>
-              </div>
+              </div> */}
               <div className="end-modal-btns">
                 <div
                   onClick={() => {
