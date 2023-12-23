@@ -13,7 +13,7 @@ export default function Model(props) {
     <group {...props} dispose={null}>
       <ChristmasTreeCookie position={[92.778, -17.887, -36.945]} rotation={[0,0 ,0]} />
       <ChristmasTreeCookie position={[92.806, -17.887, 32.917]} rotation={[0,Math.PI * 1,0]}/>
-      <ChristmasTreeCookie position={[104.392, -17.887, 55.354]} rotation={[0,Math.PI * 1,0]} />
+      <ChristmasTreeCookie position={[-34.728, -3.805, 149.83]} rotation={[0,Math.PI * 1,0]} />
       <ChristmasTreeCookie position={[44.054, -18.49, -57.612]} rotation={[0,0,0]}/>
       <ChristmasTreeCookie position={[58.333, -3.275, 104.935]} rotation={[0,Math.PI,0]} />
 
