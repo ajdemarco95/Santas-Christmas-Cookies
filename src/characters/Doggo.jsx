@@ -70,7 +70,6 @@ export function Doggo(props) {
   });
 
   useEffect(() => {
-    console.log(group.current)
 
 
     const unsubscribeAny = subscribeKeys(() => {
@@ -83,19 +82,10 @@ export function Doggo(props) {
   }, []);
 
   const resetPosition = () => {
-    console.log(doggo.current.rotation())
-
-
     doggo.current.setTranslation({ x: 0, y: 0, z: 0 });
     doggo.current.setLinvel({ x: 0, y: 0, z: 0 });
     doggo.current.setAngvel({ x: 0, y: 0, z: 0 });
     // const resetQuat = quat({x: 0, y: 0, z: 0, w: 1});
-
-
-
-    console.log(doggo.current.rotation())
-
-
   };
 
 
@@ -116,9 +106,8 @@ export function Doggo(props) {
           if (e.other.rigidBodyObject.name === "fallCollider") {
             play()
             resetPosition();
-
           }
-          console.log(e.other.rigidBodyObject.name);
+          // console.log(e.other.rigidBodyObject.name);
         }}
       >
         <group
