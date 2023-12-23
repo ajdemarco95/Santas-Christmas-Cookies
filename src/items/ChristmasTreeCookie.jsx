@@ -17,6 +17,8 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
   );
   const [isCollected, setIsCollected] = useState(false); 
 
+  const meshRef = useRef();
+
   const posArr = [-0.5, 0.73, 0.32];
   const argsArr = [0.76, 2, 0.63];
 
@@ -24,20 +26,37 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
 
   const [play] = useSound('./audio/chomp.mp3')
 
+  useFrame((state,delta) => {
+    const positionSpeed = 2; 
+    const rotationSpeed = 1; 
+  
+    const yOffset = Math.sin(state.clock.elapsedTime * positionSpeed) * 0.3; 
+    const rotationOffset = Math.sin(state.clock.elapsedTime * rotationSpeed) * 0.15;
+
+
+    if (meshRef.current) {
+      meshRef.current.position.y = yOffset;
+      meshRef.current.rotation.x = (rotationOffset * delta) + 1.5;
+      meshRef.current.rotation.y += rotationOffset * delta;
+      meshRef.current.rotation.z += rotationOffset * delta;
+    }
+
+  })
+
 
  if (!isCollected) {
   return (
     <group  position={position} rotation={rotation} dispose={null} {...props}>
-      <RigidBody type="kinematicPosition" colliders={false}>
+      <RigidBody type="fixed" colliders={false}>
         <CuboidCollider
-          onCollisionEnter={(e) => {
+          onIntersectionEnter={(e) => {
             play()
             if (e.other.rigidBodyObject.name === "doggo")
             console.log("collision!")
               increaseScore()
               setIsCollected(true);
           }}
-          
+          sensor
           position={posArr}
           args={argsArr}
         />
@@ -47,6 +66,7 @@ export default function Model({ position, rotation = [0, 0, 0] }, ...props) {
           material={materials["Material.001"]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.02}
+          ref={meshRef}
         />
       </RigidBody>
     </group>
