@@ -66,7 +66,7 @@ function App() {
             camera={{ position: [4, 2, 4], fov: 45, near: 0.1, far: 200 }}
           >
             {/* <Perf /> */}
-            <Environment files={"./hdri/night-sky.hdr"} background />
+            {/* <Environment files={"./hdri/night-sky.hdr"} background /> */}
             <OrbitControls />
             <Sky />
             <fog attach="fog" color="white" near={10} far={90} />
