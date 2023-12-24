@@ -1,5 +1,5 @@
 
-# Santa's (Lilly's) Christmas Cookies
+# ~~Santa's~~ (Lilly's) Christmas Cookies
 
 ## About the Game
 
@@ -26,7 +26,7 @@ Fun fact - Lilly is actually my dog in real life! She's expressed much joy this 
 
 ## Inspired by Bruno Simon's ThreeJS Journey
 
-The development of "Santa's (Lilly's) Christmas Cookies" was heavily inspired by Bruno Simon's comprehensive ThreeJS Journey course. This course provided invaluable insights and instructions on how to effectively utilize libraries such as React-Three-Fiber and React-Three-Drei. Bruno Simon's teachings have been instrumental in shaping the 3D interactions and animations that bring our game to life. For anyone looking to dive deep into the world of ThreeJS and 3D web development, we highly recommend this course.
+The development of "Santa's (Lilly's) Christmas Cookies" was heavily inspired by Bruno Simon's ThreeJS Journey course. This course provided invaluable insights and instructions on how to effectively utilize libraries such as React-Three-Fiber and React-Three-Drei. Bruno Simon's teachings have been instrumental in shaping the 3D interactions and animations that bring our game to life. For anyone looking to dive deep into the world of ThreeJS and 3D web development, I highly recommend this course.
 
 ## Game Controls
 
@@ -55,7 +55,7 @@ The game will be available on `localhost:3000` (or your specified port).
 
 ## Roadmap
 
-We are constantly working to make "Santa's (Lilly's) Christmas Cookies" more engaging and fun. Here are some upcoming features:
+I have some more ideas that would make "Santa's (Lilly's) Christmas Cookies" more engaging and fun. Here are some upcoming features:
 
 - **Mobile Responsiveness**: Ensuring the game is playable and looks great on various mobile devices.
 - **Falling Snow**: Adding a dynamic snowfall effect to enhance the wintry atmosphere of the game.
@@ -70,7 +70,12 @@ Interested in contributing to Santa's (Lilly's) Christmas Cookies? Great! We wel
 
 ## License
 
-This project is licensed under the [Your License Name] - see the LICENSE file for details.
+This project is licensed under the MIT License.
+
+## Attribution
+
+Thank you to Poly.pizza for many of the 3D assets, as well as Sketchfab and Turbosquid. Without these assets the game would have taken 10x longer to develop!
+
 
 ## Acknowledgments
 
