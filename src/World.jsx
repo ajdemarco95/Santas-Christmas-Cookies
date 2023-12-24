@@ -14,6 +14,8 @@ import Collectibles from "./GameComponents/Collectibles";
 import { useRef, useEffect } from "react";
 import FallCollider from "./WorldComponents/FallCollider";
 import MerryChristmasCane from "./WorldComponents/MerryChristmasCane";
+import ChristmasStuff from './WorldComponents/ChristmasStuff'
+
 export default function Model() {
   const groundRef = useRef();
 
@@ -28,6 +30,7 @@ export default function Model() {
           position={[27.011, -6.113, 58.022]}
           args={[2, 9, 2]}
         />
+              <ChristmasStuff />
         <Start />
         <AlienCave />
         <Church />
