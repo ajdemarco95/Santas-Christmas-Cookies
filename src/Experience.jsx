@@ -4,11 +4,13 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import World from "./World";
 import IceFloor from "./WorldComponents/IceFloor";
 import BebasText from "./BebasText";
+import PositionAudio from "./PositionAudio";
 
 function Experience() {
   return (
     <>
       <World />
+      <PositionAudio />
       <Doggo />
       <RigidBody type="fixed" colliders={false}>
         <CuboidCollider

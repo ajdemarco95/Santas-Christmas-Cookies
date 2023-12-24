@@ -33,7 +33,7 @@ export function Doggo(props) {
 
   const [play] = useSound('./audio/howl.mp3')
 
-  // const updateDogPosition = useDog((state) => state.updateDogPosition)
+  const updateDogPosition = useDog((state) => state.updateDogPosition)
 
   const group = useRef();
   const doggo = useRef();
@@ -64,9 +64,9 @@ export function Doggo(props) {
     }
     // console.log(doggo.current.rotation())
 
-    // let dogPos = new THREE.Vector3()
-    // group.current.getWorldPosition(dogPos)
-    // updateDogPosition(dogPos)
+    let dogPos = new THREE.Vector3()
+    group.current.getWorldPosition(dogPos)
+    updateDogPosition(dogPos)
   });
 
   useEffect(() => {
