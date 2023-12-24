@@ -26,7 +26,7 @@ Fun fact - Lilly is actually my dog in real life! She's expressed much joy this 
 
 ## Inspired by Bruno Simon's ThreeJS Journey
 
-The development of "Santa's (Lilly's) Christmas Cookies" was heavily inspired by Bruno Simon's ThreeJS Journey course. This course provided invaluable insights and instructions on how to effectively utilize libraries such as React-Three-Fiber and React-Three-Drei. Bruno Simon's teachings have been instrumental in shaping the 3D interactions and animations that bring our game to life. For anyone looking to dive deep into the world of ThreeJS and 3D web development, I highly recommend this course.
+The development of "Santa's (Lilly's) Christmas Cookies" was heavily inspired by Bruno Simon's ThreeJS Journey course. This course provided invaluable insights and instructions on how to effectively utilize libraries such as React-Three-Fiber and React-Three-Drei. Bruno Simon's teachings have been instrumental in shaping the 3D interactions and animations that brought my game to life. For anyone looking to dive deep into the world of ThreeJS and 3D web development, I highly recommend this course.
 
 ## Game Controls
 
