@@ -9,8 +9,10 @@ Welcome to "Santa's (Lilly's) Christmas Cookies" - an adventurous and humorous C
 ## About Lilly
 Fun fact - Lilly is actually my dog in real life! She's expressed much joy this holiday season knowing us humans are playing as her in a video game!
 
-![Alt text](lilly_1.png)
-![Alt text](lilly_2.png)
+<div style="display: flex;">
+  <img src="lilly_1.png" alt="Picture of Lilly" style="width: 50%;"/>
+  <img src="lilly_2.png" alt="Picture of Lilly" style="width: 50%;"/>
+</div>
 
 
 
