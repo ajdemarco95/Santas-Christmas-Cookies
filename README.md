@@ -42,7 +42,7 @@ Navigate through the whimsical North Pole, exploring various locations to find t
 
 ```bash
 # Clone the repository
-git clone [your-game-repo-link]
+git clone https://github.com/ajdemarco95/Santas-Christmas-Cookies
 
 # Install dependencies
 npm install
